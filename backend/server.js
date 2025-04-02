@@ -8,13 +8,10 @@ import userRoutes from "./routes/user.routes.js";
 
 import connectDB from "./db/connectToMongoDB.js";
 
-
 const app = express();
 
 dotenv.config();
 const port = process.env.PORT || 5000;
-
-
 
 app.use(express.json());
 app.use(cookieParser());
@@ -27,8 +24,6 @@ app.use("/api/users" , userRoutes);
 app.get("/" , (req,res) => {
     res.send(`the home page.`)
 });
-
-
 
 app.listen(port , () => {
     connectDB();

@@ -36,7 +36,7 @@ export const signupUser = async (req , res) => {
         if (newUser){
             generateTokenAndSetCookie(newUser._id , res);
             await newUser.save()
-            res.status(201).json({success:true , data : newUser , _id : newUser._id})
+            res.status(201).json({_id : newUser._id , fullname : newUser.fullname , username : newUser.username , profilepic : newUser.profilepic})
         }
         else{
             res.status(200).json({error : "invalid userdata or missing fields"})
@@ -60,7 +60,7 @@ export const loginUser = async (req , res) => {
         }
         generateTokenAndSetCookie(user._id , res);
 
-        res.status(200).json(user)
+        res.status(200).json({_id : user._id , fullname : user.fullname , username : user.username , profilepic : user.profilepic})
 
     } catch (error) {
 

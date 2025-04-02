@@ -10,6 +10,6 @@ export const getUsersForSidebar = async (req , res) => {
     } catch (error) {
         console.error("error in getUserForSidebar",error.message);
         res.status(500).json({error : "internal server error"})
-    }
+    }   
     
 }
