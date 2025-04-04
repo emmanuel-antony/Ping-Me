@@ -6,9 +6,10 @@ import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
+import {app , server} from "./socket/socket.js";
+
 import connectDB from "./db/connectToMongoDB.js";
 
-const app = express();
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -25,7 +26,7 @@ app.get("/" , (req,res) => {
     res.send(`the home page.`)
 });
 
-app.listen(port , () => {
+server.listen(port , () => {
     connectDB();
     console.log(`server listens at ${port}`)
 });

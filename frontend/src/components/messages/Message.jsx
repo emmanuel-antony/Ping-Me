@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import useConversation from "../../zustand/useConversation.js";
+import { extractTime } from "../../utils/extractTime.js";
 
 const Message = ({ message }) => {
   const { authUser } = useAuthContext();
@@ -12,11 +13,12 @@ const Message = ({ message }) => {
     : selectedConversation?.profilepic || "/default-profile.png";
   const bubbleBgColor = fromMe ? "bg-blue-500" : "bg-gray-300 text-black";
 
+  //shake class for shaking the messages when new message arrives
+    const shakeClass = message.shouldShake ? "shake" : "";
+ // console.log("message.message",message.message)
+
   // Format timestamp
-  const formatTime = (timestamp) => {
-    const date = new Date(timestamp);
-    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  };
+  const formattedTime = extractTime(message.createdAt)
 
   return (
     <div className={`chat ${chatClassName}`}>
@@ -26,10 +28,12 @@ const Message = ({ message }) => {
         </div>
       </div>
 
-      <div className={`chat-bubble ${bubbleBgColor}`}>{message.message}</div>
+      <div className={`chat-bubble ${bubbleBgColor} ${shakeClass} pb-2`}> {/* */}
+      {message.message}
+    </div>
 
       <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
-        {/*formatTime(message.timestamp)*/}
+        {formattedTime}
       </div>
     </div>
   );
