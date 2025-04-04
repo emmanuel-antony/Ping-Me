@@ -17,7 +17,7 @@ const useLogOut = () => {
             if(data.error){
                 throw new Error (data.error)
             }
-            localStorage.removeItem("chat-User")
+            localStorage.removeItem("chat-user")
             setAuthUser(null)
         } catch (error) {
             toast.error(error.message)

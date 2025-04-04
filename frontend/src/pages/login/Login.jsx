@@ -16,27 +16,27 @@ const Login = () => {
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
       <div className="w-full p-6 rounded-lg shadow-md bg-gray bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0">
-        <h1 className="text-3xl font-semibold text-center text-gray-300">
+        <h1 className="text-3xl pb-2 font-semibold text-center text-gray-300">
           LOGIN
-          <span className="text-blue-500">ChatApp</span>
+          <span className="text-blue-500"> PingMe</span>
         </h1>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="pb-2">
             <label className="label">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text pb-2">Username</span>
             </label>
             <input
               type="text"
               placeholder="Enter username"
-              className="w-full input input-bordered h-10  bg-gray-900 rounded-lg"
+              className="w-full input input-bordered h-10 bg-gray-900 rounded-lg"
               value={username}
               onChange={(e) => setusername(e.target.value)}
             />
           </div>
 
-          <div>
+          <div  className="pb-2">
             <label className="label">
-              <span className="text-base label-text">Password</span>
+              <span className="text-base label-text pb-2">Password</span>
             </label>
             <input
               type="password"

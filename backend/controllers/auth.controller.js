@@ -39,7 +39,7 @@ export const signupUser = async (req , res) => {
             res.status(201).json({_id : newUser._id , fullname : newUser.fullname , username : newUser.username , profilepic : newUser.profilepic})
         }
         else{
-            res.status(200).json({error : "invalid userdata or missing fields"})
+            res.status(400).json({error : "invalid userdata or missing fields"})
         }
         
        

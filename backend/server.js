@@ -22,11 +22,14 @@ app.use("/api/messages" , messageRoutes);
 app.use("/api/users" , userRoutes);
 
 
+
 app.get("/" , (req,res) => {
     res.send(`the home page.`)
 });
 
+connectDB();
+
 server.listen(port , () => {
-    connectDB();
+    
     console.log(`server listens at ${port}`)
 });
