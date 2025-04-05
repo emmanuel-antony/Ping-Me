@@ -17,7 +17,7 @@ const Login = () => {
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
       <div className="w-full p-6 rounded-lg shadow-md bg-gray bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0">
         <h1 className="text-3xl pb-2 font-semibold text-center text-gray-300">
-          LOGIN
+          Login
           <span className="text-blue-500"> PingMe</span>
         </h1>
         <form onSubmit={handleSubmit}>
