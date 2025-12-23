@@ -2,7 +2,7 @@ import express from "express" ;
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
-
+import ErrorHandler from "./middleware/error.middleware.js";
 import authRoutes from "./routes/auth.routes.js"; 
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
@@ -35,6 +35,8 @@ app.get("*" , (req,res) => {
 app.get("/" , (req,res) => {
     res.send(`the home page.`)
 });
+
+app.use(ErrorHandler)
 
 connectDB();
 
